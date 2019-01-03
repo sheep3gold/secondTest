@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.org/books"
+        xmlns:tns="http://www.example.org/books"
+        elementFormDefault="qualified">
+    <!-- 每一个元素对应一个element标签 -->
+    <element name="books">
+        <!-- 包含子元素或属性的元素被称为 `复杂元素` -->
+        <complexType>
+            <!-- 强调子元素出现的顺序 -->
+            <sequence>
+                <element name="book" minOccurs="1" maxOccurs="unbounded">
+                    <complexType>
+                        <sequence>
+                            <!-- 对于拥有内容的元素, 需要编写 type 属性 -->
+                            <element name="name" type="string"></element>
+                            <element name="price" type="string"></element>
+                        </sequence>
+                        <!-- book 标签有 author 属性, 类型是字符串, 该属性必须填写 -->
+                        <attribute name="author" type="string" use="required"></attribute>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

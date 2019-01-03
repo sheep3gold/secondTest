@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="intellij_power_mode_II">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/intellij_power_mode_II.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

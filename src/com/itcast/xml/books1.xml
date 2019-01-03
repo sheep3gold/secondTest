@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+ 斗破苍穹			缥缈之旅		诛仙			鬼吹灯			神墓
+ 天蚕土豆			 萧潜		      萧鼎		 天下霸唱		 辰东
+   ￥86			   ￥92			 ￥98		  ￥124		   ￥128
+ -->
+<!--内部DTD约束-->
+<!DOCTYPE books[
+        <!ELEMENT books (book+)>
+        <!ELEMENT book (name,price)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT price (#PCDATA)>
+        <!ATTLIST book author CDATA #REQUIRED>
+        <!--&lt;!&ndash; #IMPLIED 可选 &ndash;&gt;-->
+        ]>
+<books>
+    <book author="天蚕土豆">
+        <name>斗破苍穹</name>
+        <price>86</price>
+    </book>
+    <book author="萧潜">
+        <name>飘渺之旅</name>
+        <price>92</price>
+    </book>
+    <book author="萧鼎">
+        <name>诛仙</name>
+        <price>98</price>
+    </book>
+    <book author="天下霸唱">
+        <name>鬼吹灯</name>
+        <price>124</price>
+    </book>
+    <book author="辰东">
+        <name>神墓</name>
+        <price>128</price>
+    </book>
+</books>

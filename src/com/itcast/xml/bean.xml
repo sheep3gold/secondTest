@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<beans xmlns="http://www.example.org/bean-schema"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.example.org/bean-schema bean-schema.xsd">
+    <bean id="001" className="cn.itcast.User">
+        <property name="userName" value="Jack"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+    <bean id="002" className="cn.itcast.User">
+        <property name="userName" value="Peter"></property>
+        <property name="password" value="654321"></property>
+    </bean>
+</beans>

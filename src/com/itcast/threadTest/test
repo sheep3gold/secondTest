@@ -1,0 +1,49 @@
+public class TicketBuyer extends Thread {
+
+	// 1.1 定义三个变量，分别用来记录是售票员手中面值5,10元，20元RMB的张数
+	int money5 = 3, money10 = 0, money20 = 0;
+	// 1.2 定义一个变量用来记录购票人手中一张RMB的面值
+	int money;
+
+	// 1.3 定义一个构造方法，把购票人手中的人民币作为参数传递进去
+	public TicketBuyer(int money) {
+		this.money = money;
+	}
+
+	/*
+	 * 1.4 重写Thread类的run方法
+	 */
+	@Override
+	public void run() {
+		// 1.6 调用买票找零的规则方法，购票
+		rule(money);
+	}
+
+	/*
+	 * 1.5 定义售票找零的方法
+	 */
+	public synchronized void rule(int money) {
+		// 1.5.1 如果购票人给的RMB面值是5元的
+		if (money == 5) {
+			// 1.5.2 售票员手中的面值为5元的RMB应该增加一张
+			money5++;
+			// 1.5.3 购票成功
+			System.out.println("给你入场券，你的钱正好。");
+		} else if (money == 20) {
+			// 1.5.4 如果购票人给的RMB面值是20元的,但是售票员手中5元的RMB不够3张，不能找给购票人，
+			while (money5 < 3) {
+				try {
+					// 1.5.5 没有零钱，就等待 ，让其它人买票
+					wait();
+				} catch (InterruptedException e) {
+				}
+			}
+			// 1.5.6 如果售票员手中5元的RMB大于或者等于3张，就应该找回3张5元的RMB,5元的RMB张数应该减3
+			money5 = money5 - 3;
+			// 1.5.7 收到一张20元的RMB,20元的RMB张数应该加1
+			money20++;
+			// 打印售票成功的信息
+			System.out.println("给你入场券，你给我20元，找你15元。");
+		} else if (money == 10) {
+			// 1.5.8 如果购票人给的一张10元的
+			while (money5 < 1) {
